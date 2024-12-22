@@ -1,0 +1,328 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --blue: #0a91d0;
+    --amber: #f59e0b; 
+    --slate: #e2e8f0;
+    --slate-darker: #94a3b8;
+    --zinc-word: #71717a;
+    --shadow: rgba(0, 0, 0, 0.2);
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 2fr 7fr;
+    grid-template-rows: 1fr 3fr;
+}
+
+.sidebar {
+    background-color: var(--blue);
+    box-shadow: 1px 0 10px var(--shadow);
+    z-index: 2;
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+    padding: 1rem;
+    font-weight: 600;
+}
+
+.sidebar li {
+    list-style: none;
+    margin: 1.4rem 0.5rem;
+}
+
+.sidebar > a {
+    margin-bottom: 2.5rem;
+}
+
+.sidebar > div {
+    margin-bottom: 4rem;
+}
+
+.logo span {
+    font-size: 1.6rem;
+    margin-left: -0.8rem;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.sidebar svg {
+    width: 1.5rem; 
+    height: 1.5rem;
+    fill: white;
+    margin-right: 1.5rem;
+}
+
+.header {
+    background-color: white;
+    box-shadow: 0 2px 10px var(--shadow);
+    z-index: 1;
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-rows: 1fr 1.5fr;
+}
+
+.upper-header {
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    padding: 1rem 2rem 0.5rem; 
+}
+
+.header svg,
+.main svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.upper-header div:nth-child(1) {
+    grid-column: 1 / 2;  
+}
+
+.upper-header > div,
+.upper-header > div > label,
+.upper-header > div > a {
+    display: flex;
+    align-items: center;
+}
+
+.upper-header a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.upper-header a:hover svg {
+    fill: var(--amber);
+}
+
+input {
+    appearance: none;
+    line-height: 1.4rem;
+    background-color: var(--slate);
+    border: none;
+    border-radius: 15px;
+    padding: 0.2rem 0.5rem;
+    width: 80%;
+}
+
+input:focus {
+    outline: 2.5px solid var(--slate-darker);
+}
+
+img {
+    width: 2.8rem;
+    height: 2.5rem;
+    margin: 0 1.5rem;
+}
+
+.main-header {
+    grid-row: 2 / -1;
+    display: grid;
+    grid-template-columns: 1.5fr minmax(0, 0.2fr) 1fr;
+}
+
+.main-header div:first-child {
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+}
+
+.main-header div:first-child > div {
+    grid-column: 2 / -1;
+}
+
+.main-header p:first-child {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.5em;
+}
+
+.main-header p:nth-child(2) {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.main-header > div:last-child {
+    grid-column: 3 / -1;
+    display: flex;
+    place-items: center;
+}
+
+.main-header img {
+    width: 4.5rem;
+    height: 4.3rem;
+    margin-left: 2rem;
+}
+
+.main-header button {
+    width: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-color: var(--blue);
+    color: white;
+    padding: 0.6rem 0;
+    margin: 0 0.5rem;
+    border: none; 
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.main {
+    background-color: var(--slate);
+    grid-column: 2 / -1;
+    display: grid;
+    grid-template-columns: 3fr 1.1fr; 
+    grid-template-rows: repeat(2, 1fr);
+    padding: 1.5rem 1rem;
+    gap: 1.5rem 1rem;
+}
+
+.main > div:not(.projects, .trending) > div,
+.project-container > div,
+.trending > div {
+    background-color: white;
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 2px 2px 3px var(--shadow);
+} 
+
+h3, h4 {
+    font-weight: 500;
+}
+
+h3 {
+    margin: 0.5rem 0;
+}
+
+.projects {
+    grid-row: 1 / -1;
+}
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+}
+
+.project-container > div {
+    min-height: 200px;
+    display: grid; 
+    grid-template-rows: 5fr 1fr;
+    position: relative;
+}
+
+.project-container > div::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 2.5%;
+    background-color: var(--amber);
+    border-radius: 8px 0 0 8px;
+    z-index: 1;
+
+}
+
+.project-container > div > div:last-child {
+    grid-row: 2;
+    display: flex;
+    justify-content: end;
+    gap: 0.5rem;
+}
+
+.project-container svg:hover {
+    cursor: pointer;
+    fill: var(--amber)
+}
+
+.project-container > div > div > p {
+    color: var(--zinc-word);
+    font-size: 0.9rem;
+    margin: 0.5em 0;
+}
+
+.announcements {
+    grid-column: 2;
+}
+
+.announcements h4 {
+    margin-bottom: 0.2em;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.announcements p {
+    font-size: 0.7rem;
+    color: var(--zinc-word);
+}
+
+hr {
+    margin: 1rem 0;
+    border: 0.1px solid var(--shadow);
+}
+
+.trending {
+    grid-column: 2;
+}
+
+.trending > div {
+    padding: 1rem 1.5rem;
+}
+
+.user {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin-top: 0.5rem;
+}
+
+.project-container > div:hover,
+.announcements > div > div:hover,
+.user:hover {
+    cursor: pointer;
+}
+
+.project-container > div:hover h4,
+.announcements > div > div:hover h4,
+.user:hover div {
+    color: var(--amber);
+}
+
+.user img {
+    margin: 0;
+    margin-right: 1rem;
+}
+
+.user p:first-child {
+    font-size: 0.9rem;
+    margin-bottom: 0.2em;
+}
+
+.user p:last-child {
+    font-size: 0.8rem;
+    color: var(--zinc-word);
+    margin-bottom: 1.5rem;
+} 
